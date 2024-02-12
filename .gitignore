@@ -1,0 +1,10 @@
+.cache/
+.cloudflared/
+.kube/
+.ssh/
+.vscode-server/
+.bashrc
+.bash_history
+.profile
+update.txt
+.wget-hsts

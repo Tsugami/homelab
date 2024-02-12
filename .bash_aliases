@@ -1,0 +1,1 @@
+alias k="sudo k3s kubectl"

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflared-deployment
+  labels:
+    app: cloudflared
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflared
+  template:
+    metadata:
+      labels:
+        app: cloudflared
+    spec:
+      containers:
+        - name: dcloudflared
+          image: cloudflare/cloudflared:latest
+          args:
+            - tunnel
+            - --no-autoupdate
+            - run
+            - --token
+            - eyJhIjoiZjk3OTQwMThhYzgwODc0NzE4NTUxMTZjODM4MmRiOTMiLCJ0IjoiOGZhMDA0NTMtOTgyNi00ZTIyLWE1YzMtMDVlOWI3MWZmMmMyIiwicyI6Ik5qTmtaVFV6TkRndE1UWTBOQzAwTTJNekxXSmxaVGN0WVdSa01qazVOR1ptT1dJNCJ9
+          # command: ["tunnel", "--no-autoupdate", "run", "--token", "eyJhIjoiZjk3OTQwMThhYzgwODc0NzE4NTUxMTZjODM4MmRiOTMiLCJ0IjoiOGZhMDA0NTMtOTgyNi00ZTIyLWE1YzMtMDVlOWI3MWZmMmMyIiwicyI6Ik5qTmtaVFV6TkRndE1UWTBOQzAwTTJNekxXSmxaVGN0WVdSa01qazVOR1ptT1dJNCJ9"]
