@@ -1,0 +1,11 @@
+# https://github.com/cloudflare/helm-charts/blob/main/charts/cloudflare-tunnel/values.yaml
+
+cloudflare:
+  secretName: "homelab-tunnel-credentials"
+  tunnelName: "homelab"
+  ingress:
+    - hostname: whoami.yslanramos.com
+      service: http://whoami.whoami:80
+    - hostname: hello.yslanramos.com
+      service: hello_world
+    

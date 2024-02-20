@@ -8,3 +8,8 @@
 .profile
 update.txt
 .wget-hsts
+.gitconfig
+a.txt
+secrets.yml
+.env
+.docker
