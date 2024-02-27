@@ -1,11 +1,36 @@
-applications:
-  - name: example
-    project: default
-    source:
-      repoURL: https://github.com/Tsugami/mylab.git
-      targetRevision: HEAD
-      path: apps 
-      directory:
-        recurse: true
-    destination:
-      server: https://kubernetes.default.svc
+# applications:
+#   - name: example
+#     project: default
+#     source:
+#       repoURL: https://github.com/Tsugami/mylab.git
+#       targetRevision: HEAD
+#       path: apps 
+#       directory:
+#         recurse: true
+#     destination:
+#       server: https://kubernetes.default.svc
+
+applicationsets:
+  - name: homelab
+    # namespace: default
+    generators:
+    - git:
+        repoURL: https://github.com/Tsugami/mylab.git
+        revision: HEAD
+        directories:
+          - path: apps/*
+    template:
+      metadata:
+        name: '{{path.basename}}'
+      spec:
+        project: default
+        source:
+          repoURL: https://github.com/Tsugami/mylab.git
+          targetRevision: HEAD
+          path: '{{path}}'
+        destination:
+          server: https://kubernetes.default.svc
+          namespace: '{{path.basename}}'
+        syncPolicy:
+          syncOptions:
+            - CreateNamespace=true
