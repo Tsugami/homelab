@@ -1,3 +1,7 @@
 global:
   addPrometheusAnnotations: true
-  domain: argocd.yslanramos.com	
+  domain: argocd.yslanramos.com
+
+configs:
+  params:
+    server.insecure: true	

@@ -1,0 +1,33 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: arca
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mirim-invertido
+  namespace: arca
+  labels:
+    app: mirim-invertido
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mirim-invertido
+  template:
+    metadata:
+      labels:
+        app: mirim-invertido
+    spec:
+      # imagePullSecrets:
+      #   - name: myreg
+      containers:
+        - name: mirim-invertido
+          image: yslanramos/mirim-bot:main
+          envFrom:
+            - secretRef:
+                name: mirim-invertido-env
+                
