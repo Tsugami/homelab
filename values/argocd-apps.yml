@@ -1,0 +1,11 @@
+applications:
+  - name: example
+    project: default
+    source:
+      repoURL: https://github.com/Tsugami/mylab.git
+      targetRevision: HEAD
+      path: apps 
+      directory:
+        recurse: true
+    destination:
+      server: https://kubernetes.default.svc
