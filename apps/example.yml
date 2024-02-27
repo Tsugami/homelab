@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: example
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example
+  namespace: example
+  labels:
+    app: example
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: example
+          image: ghcr.io/tsugami/app-example:sha256-31cc590761a26e105890971859ee7533571c56b75ed86fa37045623c5535d1bc.sig
+                
