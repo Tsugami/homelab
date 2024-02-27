@@ -23,5 +23,5 @@ spec:
     spec:
       containers:
         - name: example
-          image: ghcr.io/tsugami/app-example:sha256-31cc590761a26e105890971859ee7533571c56b75ed86fa37045623c5535d1bc.sig
+          image: ghcr.io/tsugami/app-example:main
                 
