@@ -35,3 +35,9 @@ helmfile --version
 ### Setup Cloudflared
 
 https://developers.cloudflare.com/cloudflare-one/tutorials/many-cfd-one-tunnel/
+
+## Setup new routes
+
+```sh
+cloudflared tunnel route dns <tunnel> <hostname>
+```

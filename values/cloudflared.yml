@@ -8,4 +8,5 @@ cloudflare:
       service: http://whoami.whoami:80
     - hostname: hello.yslanramos.com
       service: hello_world
-    
+    - hostname: argocd.yslanramos.com
+      service: http://argocd.argocd-server:80
