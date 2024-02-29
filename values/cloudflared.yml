@@ -10,5 +10,5 @@ cloudflare:
       service: hello_world
     - hostname: argocd.yslanramos.com
       service: http://argocd-server.argocd.svc
-    - hostname: mhfrontier-cq-tool-api.yslanramos.com
+    - hostname: "*.apps.yslanramos.com"
       service: http://traefik.kube-system.svc
