@@ -64,3 +64,23 @@ spec:
     - name: mfcq-ratelimit
       namespace: arca
 ---
+apiVersion: networking.k8s.io/v1
+kind: Ingless
+metadata:
+  name: mhfcq-api-ingress
+  namespace: arca
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: mfcq-ratelimit
+spec:
+  rules:
+    - host: mhfcq-api.apps.yslanramos.com
+      http:
+        paths:
+          - path: /
+            pathType: Exact
+            backend:
+              service:
+                name: mhfcq-api-svc
+                port:
+                  number: 8080
