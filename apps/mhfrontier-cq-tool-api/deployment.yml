@@ -1,24 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mhfrontier-cq-tool-api
+  name: mhfcq-api
   namespace: arca
   labels:
-    app: mhfrontier-cq-tool-api
+    app: mhfcq-api
 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mhfrontier-cq-tool-api
+      app: mhfcq-api
   template:
     metadata:
       labels:
-        app: mhfrontier-cq-tool-api
+        app: mhfcq-api
     spec:
       containers:
-        - name: mhfrontier-cq-tool-api
-          image: ghcr.io/invasor-de-fronteiras/mhfrontier-cq-tool-api:main
+        - name: mhfcq-api
+          image: ghcr.io/invasor-de-fronteiras/mhfrontier-cq-tool-api:v1.0.0
+          containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mhfcq-api-svc
+  namespace: arca
+spec:
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: mhfcq-api
+  type: ClusterIP
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
@@ -33,19 +48,20 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: mhfrontier-cq-tool-api
+  name: mhfcq-api
   namespace: arca
-
 spec:
   entryPoints:
-    - web
-    - websecure
+  - websecure
   routes:
   - match: Host(`mhfcq-api.apps.yslanramos.com`)
     kind: Rule
+    priority: 10
     services:
-    - name: mhfrontier-cq-tool-api
+    - kind: Service
+      name: mhfcq-api-svc
+      namespace: arca
       port: 8080
     middlewares:
-      - name: mfcq-ratelimit
-        namespace: arca
+    - name: mfcq-ratelimit
+      namespace: arca
