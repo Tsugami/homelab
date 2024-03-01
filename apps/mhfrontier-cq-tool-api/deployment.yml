@@ -73,7 +73,7 @@ metadata:
   namespace: arca
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
-    traefik.ingress.kubernetes.io/router.middlewares: mfcq-ratelimit
+    traefik.ingress.kubernetes.io/router.middlewares: mfcq-ratelimit@kubernetescrd
 
 spec:
   rules:
