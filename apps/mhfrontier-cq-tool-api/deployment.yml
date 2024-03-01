@@ -24,13 +24,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mhfcq-api
+  name: mhfcq-api-svc
   namespace: arca
 spec:
   ports:
   - protocol: TCP
-    port: 80
-    targetPort: 80
+    port: 8080
+    targetPort: 8080
   selector:
     app: mhfcq-api
   type: ClusterIP
@@ -57,8 +57,10 @@ spec:
   - match: Host(`mhfcq-api.apps.yslanramos.com`)
     kind: Rule
     services:
-    - name: mhfcq-api
+    - kind: Service
+      name: mhfcq-api-svc
       port: 8080
     middlewares:
     - name: mfcq-ratelimit
       namespace: arca
+---
