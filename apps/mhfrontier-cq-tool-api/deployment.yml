@@ -39,6 +39,7 @@ metadata:
 spec:
   entryPoints:
     - web
+    - websecure
   routes:
   - match: Host(`mhfrontier-cq-tool-api.yslanramos.com`)
     kind: Rule
