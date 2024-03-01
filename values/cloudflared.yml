@@ -12,3 +12,5 @@ cloudflare:
       service: http://argocd-server.argocd.svc
     - hostname: "*.apps.yslanramos.com"
       service: http://traefik.kube-system.svc
+    - hostname: kubetail.yslanramos.com
+      service: http://kubetail.kubetail.svc:4000

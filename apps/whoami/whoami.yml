@@ -51,7 +51,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`whoami.yslanramos.com`)
+    - match: Host(`whoami.apps.yslanramos.com`)
       kind: Rule
       services:
         - name: whoami
