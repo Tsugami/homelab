@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: mhfcq-api
-          image: ghcr.io/invasor-de-fronteiras/mhfrontier-cq-tool-api@v1.0.0
+          image: ghcr.io/invasor-de-fronteiras/mhfrontier-cq-tool-api:v1.0.0
           containerPort: 8080
 ---
 apiVersion: v1
