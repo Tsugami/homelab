@@ -50,11 +50,9 @@ kind: IngressRoute
 metadata:
   name: mhfcq-api
   namespace: arca
-
 spec:
   entryPoints:
-    # - web
-    - websecure
+  - websecure
   routes:
   - match: Host(`mhfcq-api.apps.yslanramos.com`)
     kind: Rule
@@ -62,5 +60,5 @@ spec:
     - name: mhfcq-api
       port: 8080
     middlewares:
-      - name: mfcq-ratelimit
-        namespace: arca
+    - name: mfcq-ratelimit
+      namespace: arca
