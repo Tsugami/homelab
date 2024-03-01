@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mhfrontier-cq-tool-api
+  namespace: arca
+  labels:
+    app: mhfrontier-cq-tool-api
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mhfrontier-cq-tool-api
+  template:
+    metadata:
+      labels:
+        app: mhfrontier-cq-tool-api
+    spec:
+      containers:
+        - name: mhfrontier-cq-tool-api
+          image: ghcr.io/tsugami/app-example:main
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: mfcq-ratelimit
+  namespace: arca
+spec:
+  rateLimit:
+    average: 100
+    burst: 200
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: mhfrontier-cq-tool-api
+  namespace: arca
+
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`mhfrontier-cq-tool-api.yslanramos.com`)
+    kind: Rule
+    services:
+    - name: mhfrontier-cq-tool-api
+    middlewares:
+      - name: mfcq-ratelimit
+        namespace: arca
