@@ -38,7 +38,7 @@ metadata:
 
 spec:
   entryPoints:
-    - web
+    # - web
     - websecure
   routes:
   - match: Host(`mhfcq-api.apps.yslanramos.com`)
