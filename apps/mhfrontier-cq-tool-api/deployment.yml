@@ -71,6 +71,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mhfcq-api-ingress
+  namespace: arca
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
 
@@ -84,5 +85,6 @@ spec:
             backend:
               service:
                 name:  mhfcq-api-svc
+                namespace: arca
                 port:
                   number: 8080
