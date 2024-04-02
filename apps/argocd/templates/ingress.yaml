@@ -6,12 +6,14 @@ metadata:
 spec:
   entryPoints:
     - websecure
+    - web
   routes:
     - kind: Rule
       match: Host(`argocd.yslanramos.com`)
       priority: 10
       services:
         - name: argocd-server
+          namespace: argocd
           port: 80
     - kind: Rule
       match: Host(`argocd.yslanramos.com`) && Headers(`Content-Type`, `application/grpc`)
