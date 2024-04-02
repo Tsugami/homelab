@@ -11,3 +11,6 @@ application:
     logging:
       format: json
       level: warn
+  server:
+    extraArgs: 
+      - --insecure
