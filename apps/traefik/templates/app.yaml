@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: {{ .Values.namespace.name  }}
     server: https://kubernetes.default.svc
-  project: apps-project
+  project: default
   source:
     repoURL: {{ .Values.application.source.url }}
     targetRevision: {{ .Values.application.source.targetRevision }}
