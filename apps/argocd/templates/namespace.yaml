@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
     repoURL: https://github.com/tsugami/homelab.git
-    targetRevision: main
+    targetRevision: HEAD
     path: ./apps/namespace
   syncPolicy:
     automated:
