@@ -11,32 +11,6 @@
 #       server: https://kubernetes.default.svc
 
 applicationsets:
-  - name: arca
-    # namespace: default
-    generators:
-    - git:
-        repoURL: https://github.com/Tsugami/mylab.git
-        revision: HEAD
-        directories:
-          - path: apps/arca-*
-    template:
-      metadata:
-        name: '{{path.basename}}'
-      spec:
-        project: default
-        source:
-          repoURL: https://github.com/Tsugami/mylab.git
-          targetRevision: HEAD
-          path: '{{path}}'
-        destination:
-          server: https://kubernetes.default.svc
-          namespace: arca
-        syncPolicy:
-          automated:
-            prune: true
-            selfHeal: true
-          syncOptions:
-            - CreateNamespace=true
   - name: homelab
     # namespace: default
     generators:
@@ -56,7 +30,7 @@ applicationsets:
           path: '{{path}}'
         destination:
           server: https://kubernetes.default.svc
-          namespace: argocd
+          namespace: '{{path.basename}}'
         syncPolicy:
           automated:
             prune: true
