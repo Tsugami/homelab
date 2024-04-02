@@ -14,3 +14,6 @@ application:
   server:
     extraArgs: 
       - --insecure
+
+configMap:
+  accounts.kushi: login
