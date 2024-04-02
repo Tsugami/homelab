@@ -4,10 +4,10 @@ metadata:
   name: {{ .Values.namespace.name }}-namespace
   namespace: "argocd"
   annotations:
-    argocd.argoproj.io/sync-wave: 300
+    argocd.argoproj.io/sync-wave: '{{ .Values.waves.namespace }}'
 spec:
   destination:
-    namespace: argocd
+    namespace: {{ .Values.namespace.name }}
     server: https://kubernetes.default.svc
   project: default
   source:
@@ -17,7 +17,7 @@ spec:
       values: | 
         {{- toYaml . | nindent 8 }}
       {{- end }}
-    repoURL: git@github.com:Tsugami/homelab.git
+    repoURL: https://github.com/tsugami/homelab.git
     targetRevision: HEAD
     path: ./apps/namespace
   syncPolicy:
