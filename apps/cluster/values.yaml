@@ -5,3 +5,9 @@ apps:
       targetRevision: HEAD
       url: https://github.com/tsugami/homelab.git
       path: ./apps/traefik
+  - name: cachorro
+    source:
+      releaseName: cachorro
+      targetRevision: HEAD
+      url: https://github.com/tsugami/homelab.git
+      path: ./apps/cachorro
