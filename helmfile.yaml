@@ -19,9 +19,9 @@ releases:
     values:
       - ./values/cloudflared.yml
 
-  - name: kube-prometheus-stack
-    namespace: "monitoring"
-    chart: prometheus-community/kube-prometheus-stack
+  # - name: kube-prometheus-stack
+  #   namespace: "monitoring"
+  #   chart: prometheus-community/kube-prometheus-stack
 
   - name: argocd
     chart: argo/argo-cd
@@ -35,6 +35,6 @@ releases:
     values:
       - ./values/argocd-apps.yml
   
-  - name: kubetail
-    chart: kubetail/kubetail
-    namespace: kubetail
+  # - name: kubetail
+  #   chart: kubetail/kubetail
+  #   namespace: kubetail
