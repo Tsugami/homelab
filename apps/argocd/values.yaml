@@ -1,0 +1,13 @@
+namespace:
+  name: argocd
+
+application:
+  source:
+    url: https://github.com/argoproj/argo-helm.git
+    targetRevision: argo-cd-6.7.7
+    path: ./charts/argo-cd
+  global:
+    revisionHistoryLimit: 0
+    logging:
+      format: json
+      level: warn

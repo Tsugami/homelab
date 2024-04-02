@@ -5,3 +5,9 @@ apps:
       targetRevision: HEAD
       url: https://github.com/tsugami/homelab.git
       path: ./apps/traefik
+  - name: argocd
+    source:
+      releaseName: argocd
+      targetRevision: HEAD
+      url: https://github.com/tsugami/homelab.git
+      path: ./apps/argocd
