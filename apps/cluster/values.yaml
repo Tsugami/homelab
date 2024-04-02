@@ -1,7 +1,7 @@
-apps:
-  - name: traefik
-    source:
-      releaseName: traefik
-      targetRevision: HEAD
-      url: https://github.com/tsugami/homelab.git
-      path: ./apps/traefik
+# apps:
+#   - name: traefik
+#     source:
+#       releaseName: traefik
+#       targetRevision: HEAD
+#       url: https://github.com/tsugami/homelab.git
+#       path: ./apps/traefik
