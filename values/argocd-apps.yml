@@ -18,7 +18,8 @@ applicationsets:
         repoURL: https://github.com/Tsugami/mylab.git
         revision: HEAD
         directories:
-          - path: apps/*
+          - path: apps/cluster
+          - path: apps/mirim-invertido
     template:
       metadata:
         name: '{{path.basename}}'
