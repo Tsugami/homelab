@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "wireguard.fullname" . }}-allow-wg-traffic
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "wireguard.selectorLabels" . | nindent 5 }}
+  policyTypes:
+    - Ingress
+  ingress:
+    - ports:
+        - protocol: UDP
+          port: 51820
+        - protocol: TCP
+          port: 51821

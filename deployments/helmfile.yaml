@@ -1,0 +1,6 @@
+releases:
+  - name: wireguard
+    namespace: wireguard
+    chart: ./charts/wireguard
+    values:
+      - ./apps/wireguard/values.yaml
