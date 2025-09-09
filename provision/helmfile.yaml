@@ -24,7 +24,7 @@ releases:
     force: true
   
   - name: mirim-invertido
-    namespace: apps
+    namespace: arca
     chart: ./charts/application
     values:
       - ./apps/mirim-invertido/values.yml

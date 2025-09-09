@@ -1,19 +1,23 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: yslanramos/mirim-bot
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1"
+  tag: "main"
 
-fullnameOverride: "mirim-invertido"
+fullnameOverride: "mirim-invertido-bot"
 
 service:
   enabled: false
 
 ingress:
   enabled: false
+
+envFrom:
+  - secretRef:
+      name: mirim-invertido-env
 
 resources:
   limits:
