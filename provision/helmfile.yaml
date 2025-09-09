@@ -23,8 +23,8 @@ releases:
       - ./apps/traefik/values.yml
     force: true
   
-  - name: mirim-invertido
-    namespace: arca
+  - name: mirim-invertido-bot
+    namespace: mirim-invertido-bot
     chart: ./charts/application
     values:
       - ./apps/mirim-invertido/values.yml
