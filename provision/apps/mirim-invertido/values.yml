@@ -1,0 +1,29 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  # This sets the pull policy for images.
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1"
+
+fullnameOverride: "mirim-invertido"
+
+service:
+  enabled: false
+
+ingress:
+  enabled: false
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+livenessProbe: {}
+readinessProbe: {}
+autoscaling:
+  enabled: false

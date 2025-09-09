@@ -1,0 +1,4 @@
+ingressClass:
+  enabled: false
+service:
+  enabled: false

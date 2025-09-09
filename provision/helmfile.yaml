@@ -1,0 +1,30 @@
+helmDefaults:
+  wait: true
+  createNamespace: true
+  kubeContext: onix-homelab
+
+repositories:
+  - name: cloudflare
+    url: https://cloudflare.github.io/helm-charts
+  - name: traefik
+    url: https://traefik.github.io/charts
+releases:
+  - name: cloudflared
+    namespace: cloudflared
+    chart: cloudflare/cloudflare-tunnel
+    values:
+      - ./apps/cloudflared/values.yml
+
+  - name: traefik
+    namespace: kube-system
+    chart: traefik/traefik
+    version: 37.1.0
+    values:
+      - ./apps/traefik/values.yml
+    force: true
+  
+  - name: mirim-invertido
+    namespace: apps
+    chart: ./charts/application
+    values:
+      - ./apps/mirim-invertido/values.yml

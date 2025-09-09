@@ -1,0 +1,8 @@
+# https://github.com/cloudflare/helm-charts/blob/main/charts/cloudflare-tunnel/values.yaml
+
+cloudflare:
+  secretName: "homelab-tunnel-credentials"
+  tunnelName: "homelab"
+  ingress:
+    - hostname: "*.apps.yslanramos.com"
+      service: http://traefik.kube-system.svc
